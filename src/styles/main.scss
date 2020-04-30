@@ -1,3 +1,34 @@
+@import "rounds";
+
 body {
   margin: 0;
+  background-color: #654ca8;
+}
+
+.calendar {
+  margin: 0 auto;
+  display: flex;
+  max-width: $cellSize * 7 + 8px;
+  flex-wrap: wrap;
+}
+
+.calendar > div {
+  box-sizing: border-box;
+  display: none;
+  flex: 0 0 $cellSize;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1px 1px 0;
+  height: $cellSize;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  background-color: #eee;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: pink;
+    transform: translateY(-20px);
+  }
 }
