@@ -20,11 +20,11 @@ $daysOfWeek: (
   .calendar-#{$date} div:nth-child(-n+#{$date}) {
     display: flex;
   }
+}
 
-  @for $i from 1 through $date {
-    .calendar-#{$date} div:nth-child(#{$i})::before {
-      content: "#{$i}";
-    }
+@for $i from 1 through 31 {
+  .calendar div:nth-child(#{$i})::before {
+    content: "#{$i}";
   }
 }
 
