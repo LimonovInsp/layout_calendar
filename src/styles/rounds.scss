@@ -1,35 +1,39 @@
-$cellSize: 100px;
+$cell_size: 100px;
 
 $dates: (
-  28,
-  29,
-  30,
-  31,
+  "28": 29,
+  "29": 30,
+  "30": 31,
 );
 
-$daysOfWeek: (
-  ".calendar-tue": $cellSize + 1,
-  ".calendar-wed": $cellSize * 2 + 2,
-  ".calendar-thu": $cellSize * 3 + 3,
-  ".calendar-fri": $cellSize * 4 + 4,
-  ".calendar-sat": $cellSize * 5 + 5,
-  ".calendar-sun": $cellSize * 6 + 6,
+$days_of_week: (
+  ".calendar-tue": $cell_size + 1,
+  ".calendar-wed": $cell_size * 2 + 2,
+  ".calendar-thu": $cell_size * 3 + 3,
+  ".calendar-fri": $cell_size * 4 + 4,
+  ".calendar-sat": $cell_size * 5 + 5,
+  ".calendar-sun": $cell_size * 6 + 6,
 );
 
-@each $date in $dates {
-  .calendar-#{$date} div:nth-child(-n+#{$date}) {
-    display: flex;
+@each $date, $digit in $dates {
+  .calendar-#{$date} div:nth-child(n+#{$digit}) {
+    visibility: hidden;
   }
 }
 
 @for $i from 1 through 31 {
+
   .calendar div:nth-child(#{$i})::before {
     content: "#{$i}";
   }
 }
 
-@each $currentDay, $size in $daysOfWeek {
-  #{$currentDay} > div:first-child {
+.calendar div:nth-child(-n+31) {
+  display: flex;
+}
+
+@each $current_day, $size in $days_of_week {
+  #{$current_day} > div:first-child {
     margin-left: $size;
   }
 }

@@ -1,34 +1,40 @@
 @import "rounds";
 
+$bg_body: #654ca8;
+$bg_button_hover: pink;
+
 body {
   margin: 0;
-  background-color: #654ca8;
+  background-color: $bg_body;
 }
 
 .calendar {
-  margin: 0 auto;
   display: flex;
-  max-width: $cellSize * 7 + 8px;
   flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: $cell_size * 7 + 8px;
 }
 
 .calendar > div {
-  box-sizing: border-box;
-  display: none;
-  flex: 0 0 $cellSize;
+  flex: 0 0 $cell_size;
   align-items: center;
   justify-content: center;
+  height: $cell_size;
+  
+  box-sizing: border-box;
   margin: 0 1px 1px 0;
-  height: $cellSize;
+
   font-family: Arial, sans-serif;
   font-size: 30px;
+
   background-color: #eee;
   border: 1px solid #000;
+
   cursor: pointer;
   transition: all 0.5s;
 
   &:hover {
-    background-color: pink;
+    background-color: $bg_button_hover;
     transform: translateY(-20px);
   }
 }
